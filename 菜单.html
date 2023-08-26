@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/> <!-- 确保适应手机屏幕 -->
+<title>可爱的主页面</title>
+<style>
+        /* 基础样式 */
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF; /* Pure white background */
+    color: #333333; /* Dark gray text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #FFFFFF; /* 淡粉色背景 */
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* 卡片样式 */
+.card {
+    font-family: 'Quicksand', sans-serif;
+    width: 250px;
+    max-width: 400px;
+    background: #F5F5F5; /* Light gray background */
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+        .card {
+font-family: 'Quicksand', sans-serif;
+            width: 250px;
+            max-width: 400px;
+            background: #FFFFFF;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08); /* 粉红色阴影 */
+            text-align: center;
+            transform: scale(1);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* 点击时卡片放大效果 */
+        }
+
+/* 加载进度条样式 */
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas-wrapper {
+    transform: scale(1); /* 初始缩放比例 */
+    transition: transform 0.2s ease; /* 平滑缩放效果 */
+}
+
+@media (max-width: 420px) { /* 当屏幕宽度小于或等于420px时 */
+    .canvas-wrapper {
+        transform: scale(0.9); /* 缩小到90% */
+    }
+}
+
+        canvas {
+            border: 2px solid #D1D5DB; /* 热情粉红边框 */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* 粉红色阴影 */
+            border-radius: 20px; /* 圆角边框 */
+        }
+
+        .loading-text {
+            font-size: 15px;
+            margin-top: 10px;
+            font-weight: bold; /* 加粗字体 */
+        }
+    
+.text-div {
+    font-size: 24px;
+    color: #FF6699; /* Cute Pink Color */
+    text-shadow: 2px 2px 4px #FFCCFF; /* Light Pink Shadow */
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.footer {
+    position: fixed; 
+    bottom: 10px; 
+    width: 100%; 
+    text-align: center; 
+    font-size: 14px; 
+    color: #888888;
+}
+
+</style>
+<style>
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.hint {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.intro-text {
+    margin-top: 20px;
+    font-size: 18px;
+    display: none;
+}
+
+.more-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff9999;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: none;
+}
+
+.more-button:hover {
+    background-color: #ff7777;
+}
+
+.hidden {
+    display: none;
+}
+
+.text-div {
+    font-size: 15px;
+    color: #68410c;
+    text-shadow: 2px 2px 4px #FFCCFF; /* Light Pink Shadow */
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.footer {
+    position: fixed; 
+    bottom: 10px; 
+    width: 100%; 
+    text-align: center; 
+    font-size: 14px; 
+    color: #888888;
+}
+
+</style></head>
+<body>
+<!-- 加载进度条容器 -->
+<div class="progress-container">
+<div class="canvas-wrapper">
+<canvas height="30" id="energyBarCanvas" width="350"></canvas>
+</div>
+<div class="loading-text">🌈 loading 0%</div>
+</div>
+<!-- 卡片容器 -->
+<div class="cards-container" style="display: none;">
+<div class="card" onclick="navigate('about_me.html')" ">
+<div class="image-div"><img class="profile-pic" src="关于我.gif" style="width:90px;height:90px;"/></div>
+<div class="text-div">🌈About Me</div>
+</div>
+<div class="card" onclick="navigate('skill.html')">
+<div class="image-div"><img class="profile-pic" src="技能.gif" style="width:90px;height:90px;"/></div>
+<div class="text-div">📕Skills</div>
+</div>
+<div class="card" onclick="navigate('work.html')">
+<div class="image-div"><img class="profile-pic" src="作品.gif" style="width:90px;height:90px;"/></div>
+<div class="text-div">☀️Works</div>
+</div>
+</div>
+<script>
+        // 获取Canvas元素和上下文
+        const canvas = document.getElementById('energyBarCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 能量棒的宽度和高度
+        const barWidth = canvas.width;
+        const barHeight = canvas.height;
+
+        // 加载进度（0-100）
+        let progress = 0;
+
+        // 设置能量棒的颜色和背景颜色
+        const barColor = '#ffb3c1'; // 热情粉红色
+        const bgColor = '#ffe5df'; // 淡粉色背景
+
+        function drawEnergyBar() {
+            // 清空Canvas
+            ctx.clearRect(0, 0, barWidth, barHeight);
+
+            // 绘制背景矩形
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, barWidth, barHeight);
+
+            // 添加渐变效果
+            const gradient = ctx.createLinearGradient(0, 0, barWidth, 0);
+            gradient.addColorStop(0, '#ffb3c1');
+            gradient.addColorStop(1, '#ffdbb5');
+
+            // 绘制能量棒
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, barWidth * (progress / 100), barHeight);
+
+            // 绘制🍓字符光晕效果
+            ctx.fillStyle = 'rgba(255, 105, 180, 0.5)'; // 粉红色光晕效果
+            ctx.font = '30px Arial';
+            ctx.fillText('🐢', barWidth * (progress / 100) - 15, barHeight / 2 + 10);
+
+            // 获取进度文字的元素
+            const loadingText = document.querySelector('.loading-text');
+
+            // 更新进度文字内容
+            loadingText.textContent = `🌈 loading ${progress}%`; // 可爱的彩虹字符
+        }
+
+        function updateProgress(newProgress) {
+            if (newProgress >= 0 && newProgress <= 100) {
+                progress = newProgress;
+                drawEnergyBar();
+            }
+        }
+
+        // 模拟加载过程，每30毫秒增加一点加载进度
+        function simulateLoading() {
+            const interval = setInterval(() => {
+                updateProgress(progress + 1);
+                if (progress === 100) {
+                    clearInterval(interval);
+                    // 加载完成后，隐藏加载容器，显示卡片容器
+                    document.querySelector('.progress-container').style.display = 'none';
+                    document.querySelector('.cards-container').style.display = 'block';
+                }
+            }, 10);
+        }
+
+        // 开始加载
+        simulateLoading();
+
+        function navigate(url) {
+            window.location.href = url; // 根据点击的卡片导航到相应的页面
+        }
+    </script>
+<div class="footer">@21计科刘少龙——其实我的梦想是世界和平</div>
+</body>
+</html>

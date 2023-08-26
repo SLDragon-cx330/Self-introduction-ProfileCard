@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0111)file:///D:/%E6%A1%8C%E9%9D%A2/avatar_visible_loose_layout_with_avatar_%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>自我介绍</title>
+<link href="file:///C:/Users/a/Downloads/styles.css" rel="stylesheet">
+<script defer="" src="file:///C:/Users/a/Downloads/script.js"></script>
+<style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        canvas {
+            display: block;
+        }
+    
+    .profile-card {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 85%;
+        max-width: 400px;
+        margin: 20px auto;
+        text-align: center;
+    }
+    </style><style>
+    
+body, .hint, .intro-text, .more-button {
+    //color: #ffffff;
+}
+
+    .profile-card {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 85%;
+        max-width: 400px;
+        margin: 20px auto;
+        text-align: center;
+    }
+    </style><style>
+    
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+    .profile-card {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 85%;
+        max-width: 400px;
+        margin: 20px auto;
+        text-align: center;
+    }
+    </style><style>
+    
+body {
+    background-color: #000;
+}
+</style></head>
+<body style="font-family: &#39;Comic Sans MS&#39;, sans-serif; display: flex; justify-content: center; align-items: flex-start; padding-top: 5vh; height: 100vh; background-color: #f2f2f2; overflow: auto;"><canvas height="680" id="myCanvas" width="1313"></canvas>
+<div class="container" style="display: flex; flex-direction: column; align-items: center; margin-top: 5vh;">
+<div class="profile-card" style="background-color: rgba(255, 255, 255, 0.8);padding: 20px;border-radius: 10px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);/* width: 95%; */max-width: 360px;margin: 20px auto;text-align: center;">
+<div class="container">
+<img alt="头像" class="profile-pic" onclick="location.href=&#39;菜单.html&#39;" src="hobby-icon.png" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #333; cursor: pointer; transition: transform 0.2s;">
+<div class="intro-text" style="margin-top: 20px; font-size: 16px; display: none;"></div>
+<a class="more-button hidden" href="菜单.html">Learn More</a>
+</div>
+<h3>✨Personal Introduction✨</h3>
+<p>Name: Liu Shaolong 🍓</p>
+<p>Date of Birth: September 3, 2002 🎉</p>
+<p>Major: Computer Science and Technology 🌌</p>
+<p>Zodiac Sign: Virgo 🌸</p>
+
+<h3>🌟Qualifications & Certificates🌟</h3>
+<p>Blue Bridge Cup - Provincial First Prize 🏆</p>
+<p>Modeling - School First Prize 🥇</p>
+<p>Program Design Competition - Campus Second Prize 🥈</p>
+<p>Internet Development - Junior Level III 🌐</p>
+<p>Computer Level II Certificate 🖥️</p>
+<p>Mandarin Certificate 🍒</p>
+<p>English Level IV Certificate 📘</p>
+<p>Motor Vehicle Driving License - C1 Level 🚗</p>
+<p>ACM Certificate 🐳</p>
+<p>CCCC Certificate ☀️</p>
+<p>Outstanding Author in Algorithm Field on CSDN 🦄</p>
+<p>Aliyun Expert Blogger ❤️</p>
+<p>Huawei Cloud Expert 🌠</p>
+<p>Alipay Developer 📱</p>
+
+<h3>🍓Skills Introduction🍓</h3>
+<p>Proficient in Algorithms 🌟</p>
+<p>Game Development 🎮</p>
+<p>Mini-program Development 📱</p>
+<p>Front-end Development 🌐</p>
+<p>Proficient in C, JAVA, C++ and various front-end frameworks 🌌</p>
+
+</div>
+<p class="hint" style="margin-top: 10px; font-size: 12px;">💎 @计科3班刘少龙——其实我的梦想是世界和平！🎨</p>
+<div class="intro-text"></div>
+<a class="more-button hidden" href="file:///D:/%E6%A1%8C%E9%9D%A2/%E8%8F%9C%E5%8D%95.html">Learn More</a>
+</div>
+<script>
+        // 获取canvas元素和绘图上下文
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 设置canvas的宽度和高度
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 粒子对象
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 3 + 1; // 随机大小
+                this.color = `hsl(${Math.random() * 360}, 100%, 50%)`; // 随机颜色
+                this.velocityY = Math.random() * 3 + 1; // 随机竖直速度
+            }
+
+            // 更新粒子的位置
+            update() {
+                this.y += this.velocityY;
+
+                // 当粒子到达画布底部时，重新放置到画布顶部
+                if (this.y > canvas.height) {
+                    this.y = 0;
+                }
+            }
+
+            // 绘制粒子
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        // 创建粒子数组
+        const particles = [];
+        const numParticles = 100;
+
+        // 初始化粒子
+        for (let i = 0; i < numParticles; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            particles.push(new Particle(x, y));
+        }
+
+        // 动画循环函数
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // 启动动画
+        animate();
+    </script>
+<style>
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.hint {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.intro-text {
+    margin-top: 20px;
+    font-size: 18px;
+    display: none;
+}
+
+.more-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff9999;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: none;
+}
+
+.more-button:hover {
+    background-color: #ff7777;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+<script>
+let currentIndex = 0;
+const textToDisplay = "Greetings 🙂, I'm Liu Shaolong🤗. It's a pleasure to make your acquaintance!😊";
+const textContainer = document.querySelector('.intro-text');
+const moreButton = document.querySelector('.more-button');
+
+function showText() {
+    textContainer.style.display = "block";
+    document.querySelector('.hint').style.display = "none";
+
+    if (currentIndex < textToDisplay.length) {
+        setTimeout(() => {
+            textContainer.textContent += textToDisplay[currentIndex];
+            currentIndex++;
+            showText();
+        }, 100);
+    } else {
+        moreButton.style.display = "block";
+    }
+}
+
+
+
+
+</script>
+</body></html>

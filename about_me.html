@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>响应式滚动时间轴</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .timeline-event {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .event-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .event-content {
+            text-align: center;
+        }
+
+        .event-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .event-description.hidden {
+            display: none;
+        }
+
+        .timeline-event:not(.visible) {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media only screen and (min-width: 600px) {
+            .timeline-event {
+                flex-direction: row;
+            }
+
+            .event-image, .event-content {
+                flex: 1;
+            }
+        }
+    
+.footer {
+    position: fixed; 
+    bottom: 10px; 
+    width: 100%; 
+    text-align: center; 
+    font-size: 14px; 
+    color: #888888;
+}
+
+
+#back-button-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.5);  /* Semi-transparent white */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#back-button:hover {
+    background-color: rgba(255, 255, 255, 0.7);  /* Slightly less transparent white on hover */
+}
+</style>
+</head>
+<body>
+
+<div id="back-button-container">
+    
+<div id="back-button-container">
+    <button id="back-button" onclick="location.href='菜单.html'">Back</button>
+</div>
+
+</div>
+
+
+<div class="timeline-container">
+<div class="timeline-event">
+<div class="event-image">
+<img alt="事件1的图片" src="image1.jpg"/>
+</div>
+<div class="event-content">
+<h3>☀️大学第一次军训</h3>
+<p class="event-description hidden">那天，太阳公公超级有活力，而我？汗水淋漓但乐在其中~🌞</p>
+</div>
+</div>
+<div class="timeline-event">
+<div class="event-image">
+<img alt="事件2的图片" src="image2.jpg"/>
+</div>
+<div class="event-content">
+<h3>🐍第一次写贪吃蛇</h3>
+<p class="event-description hidden">看着屏幕上的小蛇一点点长大，好像它在告诉我“我饿了~”🍭</p>
+</div>
+</div>
+<div class="timeline-event">
+<div class="event-image">
+<img alt="事件3的图片" src="image3.jpg"/>
+</div>
+<div class="event-content">
+<h3>🍜第一次参加数学建模</h3>
+<p class="event-description hidden">数字、方程，还有那碗泡面，是我数学建模的最佳伴侣！🍜</p>
+</div>
+</div>
+<div class="timeline-event">
+<div class="event-image">
+<img alt="事件4的图片" src="image4.jpg"/>
+</div>
+<div class="event-content">
+<h3>🎉世界首富高级会议室第一次成立</h3>
+<p class="event-description hidden">好像走进了一个宝藏房，每个想法都闪闪发光✨</p>
+</div>
+</div>
+<div class="timeline-event">
+<div class="event-image">
+<img alt="事件5的图片" src="image5.jpg"/>
+</div>
+<div class="event-content">
+<h3>🌟第一次参加ACM</h3>
+<p class="event-description hidden">代码、逻辑，还有小星星，感觉自己变聪明啦！🌟</p>
+</div>
+</div>
+<div class="timeline-event">
+<div class="event-image">
+<img alt="事件6的图片" src="image6.jpg"/>
+</div>
+<div class="event-content">
+<h3>🌊第一次参加数学竞赛</h3>
+<p class="event-description hidden">数学题目好像大海中的小鱼，有时候捉摸不定，但总能捉到一两条🐟</p>
+</div>
+</div>
+<div class="timeline-event">
+<div class="event-image">
+<img alt="事件7的图片" src="image7.jpg"/>
+</div>
+<div class="event-content">
+<h3>❤️第一次加入算法实验室</h3>
+<p class="event-description hidden">这里的大家都是算法小达人，我也要加入他们的行列哦~❤️</p>
+</div>
+</div>
+<div class="timeline-event"><div class="event-image"><img alt="第一次参加" src="image8.jpg"/></div><div class="event-content"><h3>第一次参加蓝桥杯</h3><p class="event-description hidden">这里的氛围好像彩虹糖，五彩斑斓，甜甜的🌈</p></div></div><div class="timeline-event"><div class="event-image"><img alt="事件标题9" src="image9.jpg"/></div><div class="event-content"><h3>第一次写博客</h3><p class="event-description hidden">记录下我的小小思考，希望大家都喜欢呀~📝</p></div></div><div class="timeline-event"><div class="event-image"><img alt="事件标题10" src="image10.jpg"/></div><div class="event-content"><h3>第一次参加CCCC</h3><p class="event-description hidden">这里是技术的狂欢，我也准备好我的小舞鞋啦🎈</p></div></div><div class="timeline-event"><div class="event-image"><img alt="事件标题11" src="image11.jpg"/></div><div class="event-content"><h3>第一次收到官方礼物</h3><p class="event-description hidden">当我打开礼物时，心里咕噜咕噜地叫，好开心呀~🎁</p></div></div><div class="timeline-event"><div class="event-image"><img alt="事件标题12" src="image12.jpg"/></div><div class="event-content"><h3>第一次注册GitHub</h3><p class="event-description hidden">开启了与全球小伙伴的交流，我们一起写代码，一起玩耍🌍</p></div></div><div class="timeline-event"><div class="event-image"><img alt="事件标题13" src="image13.jpg"/></div><div class="event-content"><h3>第一次Java实训答辩</h3><p class="event-description hidden">站在那里，我感觉自己是世界上最可爱的小程序员！👩‍💻</p></div></div><div class="timeline-event"><div class="event-image"><img alt="事件标题14" src="image14.jpg"/></div><div class="event-content"><h3>第一次注册Google账号</h3><p class="event-description hidden">有了这个账号，感觉我和外面的世界更近啦~🔍</p></div></div></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let timelineEvents = document.querySelectorAll('.timeline-event');
+
+        timelineEvents.forEach(event => {
+            let image = event.querySelector('.event-image img');
+            let description = event.querySelector('.event-description');
+
+            image.addEventListener('click', () => {
+                if (description.classList.contains('hidden')) {
+                    description.classList.remove('hidden');
+                    revealText(description);
+                }
+            });
+        });
+
+        function revealText(element) {
+            let text = element.textContent;
+            element.textContent = '';
+            let i = 0;
+            let interval = setInterval(() => {
+                element.textContent += text[i];
+                i++;
+                if (i >= text.length) {
+                    clearInterval(interval);
+                }
+            }, 100);  // 每100毫秒显示一个字符
+        }
+
+        function checkVisibility() {
+            let timelineEvents = document.querySelectorAll('.timeline-event');
+            timelineEvents.forEach(event => {
+                let eventPosition = event.getBoundingClientRect().top + window.scrollY;
+                let windowPosition = window.scrollY + window.innerHeight;
+                if (eventPosition < windowPosition) {
+                    event.classList.add('visible');
+                }
+            });
+        }
+
+        checkVisibility(); // 初始检查
+        window.addEventListener('scroll', checkVisibility);
+    });
+</script>
+<div class="footer">@21计科刘少龙——其实我的梦想是世界和平</div>
+</body>
+</html>
